@@ -1,40 +1,67 @@
 # Halli Santhe Digital - Rural Artisan Marketplace
 
-Halli Santhe Digital is a professional Android application designed to bridge the gap between rural artisans and urban consumers. It provides a platform for village craftsmen to showcase and sell their traditional handmade products, ranging from pottery and textiles to organic forest goods.
+Halli Santhe Digital is a professional Android application designed to bridge the gap between rural artisans and urban consumers. It provides a platform for village craftsmen to showcase and sell their traditional handmade products.
 
-## 1. The Problem Statement
-Rural artisans in India often face significant challenges in reaching a wider market. Due to geographical isolation and lack of digital literacy/tools, they rely on middlemen who take a large portion of their earnings. This lack of direct market access often leads to the decline of traditional crafts as younger generations move away from their heritage due to low financial viability.
+## 🚀 Features
+*   **Explore Marketplace**: Browse a variety of authentic products (Pottery, Textiles, Woodwork, etc.).
+*   **Real-time Synchronization**: Powered by Firebase Firestore for instant updates.
+*   **Wishlist System**: Save your favorite products locally using **Room Database**.
+*   **Artisan Profiles**: Learn about the craftsmen and their village heritage.
+*   **Search & Discovery**: Real-time filtering and search for specific village crafts.
+*   **Product Listing**: Specialized flow for listing new products with image uploads to Firebase Storage.
 
-## 2. Detailed Description (The Vision)
-The vision of **Halli Santhe Digital** is to act as a "Digital Marketplace" for every village (Halli). It empowers artisans by giving them a direct-to-consumer platform. Users can explore authentic products, learn about the artisans behind them, and support rural economies directly.
+## 🛠 Tech Stack
+*   **Language**: Kotlin
+*   **Architecture**: MVVM (Model-View-ViewModel)
+*   **Database**: Room (Local), Firebase Firestore (Cloud)
+*   **Storage**: Firebase Cloud Storage
+*   **UI Components**: Material Design 3, ViewBinding, ConstraintLayout
+*   **Image Loading**: Glide
+*   **Concurrency**: Kotlin Coroutines & StateFlow
 
-## 3. App Usage & User Flow
-*   **Explore Marketplace**: Users can browse a wide variety of products categorized by craft type (Pottery, Textiles, Woodwork, etc.).
-*   **Search & Filter**: Real-time search and category-based filtering to find specific village crafts.
-*   **Product Details**: In-depth view of each product, including the artisan's name, their village, and the story/description of the craft.
-*   **Artisan Upload**: A dedicated flow for artisans (or community leads) to list new products by uploading photos and details directly to the cloud marketplace.
+## 📂 Project Structure
+```text
+app/src/main/java/com/hallisanthe/hallisanthe/
+├── data/
+│   ├── local/            # Room Database, DAOs, Entities
+│   ├── Product.kt        # Data Model
+│   ├── ProductRepository.kt # Single source of truth for data
+│   └── MockDataProvider.kt # Initial data for exploration
+├── ui/
+│   ├── ProductViewModel.kt # Business logic & State management
+│   └── theme/            # Material 3 Theme definitions
+├── MainActivity.kt       # Main entry point with Bottom Navigation
+├── HomeFragment.kt       # Marketplace browsing
+├── WishlistFragment.kt   # Local saved items
+├── CategoriesFragment.kt # Categorized browsing
+├── ProfileFragment.kt    # User account & settings
+├── UploadActivity.kt     # Product listing flow
+└── ProductDetailActivity.kt # Detailed craft information
+```
 
-## 4. Technical Implementation
-*   **Architecture**: MVVM (Model-View-ViewModel) for a clean separation of concerns and scalability.
-*   **Backend**: 
-    *   **Firebase Firestore**: Real-time NoSQL database for product listings.
-    *   **Firebase Storage**: Secure cloud storage for high-quality product images.
-*   **UI/UX**:
-    *   **Material Design 3**: Modern, earthy-themed UI following latest Android standards.
-    *   **ViewBinding**: Null-safe and type-safe interaction with UI components.
-    *   **Glide**: Optimized image loading and caching.
-*   **Concurrency**: Kotlin Coroutines and StateFlow for reactive, non-blocking data streams.
+## ⚙️ Installation & Setup
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/jaggureddy11/Internship-Project.git
+    ```
+2.  **Firebase Setup**:
+    *   Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+    *   Enable **Firestore Database** and **Firebase Storage**.
+    *   Download `google-services.json` and place it in the `app/` folder.
+3.  **Build**: Open the project in **Android Studio** and click "Sync Project with Gradle Files".
+4.  **Run**: Select an emulator or physical device and press `Shift + F10`.
 
-## 5. Impact Goals
-*   **Economic Empowerment**: Increasing the profit margin for artisans by removing middlemen.
-*   **Preservation of Culture**: Making traditional crafts financially sustainable for the next generation.
+## 📈 Impact Goals
+*   **Economic Empowerment**: Increasing profit margins for artisans by removing middlemen.
+*   **Cultural Preservation**: Making traditional crafts financially sustainable.
 *   **Digital Inclusion**: Bringing rural talent into the global digital economy.
 
-## 6. Success Criteria
-*   **Real-time Synchronization**: Product listings update instantly across all devices.
-*   **Performance**: Smooth scrolling and efficient image handling using ListAdapter and DiffUtil.
-*   **Security**: Sensitive API keys and configuration files are excluded from version control using .gitignore.
+## 📝 Success Criteria (Evaluated)
+*   **Working Implementation**: Fully functional marketplace with local wishlist persistence.
+*   **Code Quality**: Modern Android standards (MVVM, Coroutines, ViewBinding).
+*   **Documentation**: Comprehensive README with clear setup instructions.
+*   **Security**: Secret keys (google-services.json) managed via `.gitignore`.
 
 ---
-**Developed as part of the Internship Project Program.**
-**Developer:** [jaggureddy11](https://github.com/jaggureddy11)
+**Developed for the MindMatrix VTU Internship Program.**
+**Developer:** [Jaggu Reddy](https://github.com/jaggureddy11)
