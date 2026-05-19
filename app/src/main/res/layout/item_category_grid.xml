@@ -23,7 +23,7 @@
             android:layout_height="60dp"
             android:background="@drawable/bg_circle_light"
             android:gravity="center"
-            android:text="🏺"
+            android:text="@string/pottery"
             android:textSize="32sp" />
 
         <TextView
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Pottery"
+            android:text="@string/pottery"
             android:textColor="@color/primary_green"
             android:textSize="14sp"
             android:textStyle="bold" />

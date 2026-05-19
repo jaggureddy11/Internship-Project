@@ -54,9 +54,17 @@ class MainActivity : AppCompatActivity() {
         val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
         if (currentFragment?.javaClass == fragment.javaClass) return
 
-        supportFragmentManager.beginTransaction()
+        val transaction = supportFragmentManager.beginTransaction()
             .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
             .replace(R.id.fragment_container, fragment)
-            .commit()
+        
+        if (fragment !is HomeFragment) {
+            transaction.addToBackStack(null)
+        } else {
+            // Clear backstack when returning to home
+            supportFragmentManager.popBackStack(null, androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        }
+        
+        transaction.commit()
     }
 }

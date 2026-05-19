@@ -79,14 +79,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="12"
+                            android:text="@string/listings_count"
                             android:textColor="@color/primary_green"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Listings"
+                            android:text="@string/listings_label"
                             android:textSize="12sp" />
                     </LinearLayout>
 
@@ -99,14 +99,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="4.8"
+                            android:text="@string/rating_value"
                             android:textColor="@color/primary_green"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Rating"
+                            android:text="@string/rating_label"
                             android:textSize="12sp" />
                     </LinearLayout>
 
@@ -119,14 +119,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="156"
+                            android:text="@string/sales_count"
                             android:textColor="@color/primary_green"
                             android:textSize="18sp"
                             android:textStyle="bold" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Sales"
+                            android:text="@string/sales_label"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -137,7 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Account Settings"
+            android:text="@string/account_settings"
             android:textColor="@color/earthy_brown"
             android:textSize="18sp"
             android:textStyle="bold" />

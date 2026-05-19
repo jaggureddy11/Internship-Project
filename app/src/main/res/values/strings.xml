@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Halli Santhe Digital</string>
     <string name="product_name_label">Product Name</string>
-    <string name="artisan_name_label">Artisan Name</string>
+    <string name="artisan_name_label">By %s</string>
     <string name="village_name_label">Village Name</string>
     <string name="description_label">Description</string>
     <string name="price_label">Price (₹)</string>
@@ -25,16 +25,35 @@
     <string name="wishlist_empty">Your wishlist is empty</string>
     <string name="add_to_cart">Add to Cart</string>
     <string name="artisan_details">Artisan Details</string>
+    <string name="my_favorites">My Favorites</string>
+    <string name="search_favorites">Search favorites...</string>
+    <string name="account_settings">Account Settings</string>
+    <string name="listings_count">12</string>
+    <string name="listings_label">Listings</string>
+    <string name="rating_value">4.8</string>
+    <string name="rating_label">Rating</string>
+    <string name="sales_count">156</string>
+    <string name="sales_label">Sales</string>
+    <string name="trending">🔥 Trending</string>
+    <string name="pottery">🏺 Pottery</string>
+    <string name="textiles">🧵 Textiles</string>
+    <string name="woodwork">🪵 Woodwork</string>
+    <string name="organic">🌿 Organic</string>
+    <string name="metalwork">⚒️ Metalwork</string>
+    <string name="jewelry">📿 Jewelry</string>
+    <string name="paintings">🎨 Paintings</string>
+    <string name="basketry">🧺 Basketry</string>
+    <string name="description_placeholder">Product description goes here...</string>
 
     <string-array name="categories_array">
-        <item>🔥 Trending</item>
-        <item>🏺 Pottery</item>
-        <item>🧵 Textiles</item>
-        <item>🪵 Woodwork</item>
-        <item>🌿 Organic</item>
-        <item>⚒️ Metalwork</item>
-        <item>📿 Jewelry</item>
-        <item>🎨 Paintings</item>
-        <item>🧺 Basketry</item>
+        <item>@string/trending</item>
+        <item>@string/pottery</item>
+        <item>@string/textiles</item>
+        <item>@string/woodwork</item>
+        <item>@string/organic</item>
+        <item>@string/metalwork</item>
+        <item>@string/jewelry</item>
+        <item>@string/paintings</item>
+        <item>@string/basketry</item>
     </string-array>
 </resources>

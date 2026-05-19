@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.chip.Chip
 import com.hallisanthe.hallisanthe.databinding.FragmentHomeBinding
 import com.hallisanthe.hallisanthe.ui.ProductViewModel
+import com.hallisanthe.hallisanthe.utils.setVisible
 import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
@@ -131,7 +132,7 @@ class HomeFragment : Fragment() {
         }
 
         productAdapter.submitList(filtered)
-        binding.emptyStateLayout.visibility = if (filtered.isEmpty()) View.VISIBLE else View.GONE
+        binding.emptyStateLayout.setVisible(filtered.isEmpty())
     }
 
     override fun onDestroyView() {

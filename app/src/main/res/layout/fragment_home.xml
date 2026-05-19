@@ -20,7 +20,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Halli Santhe Digital"
+                android:text="@string/app_name"
                 android:textColor="@color/primary_green"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -63,32 +63,32 @@
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🔥 Trending"
+                    android:text="@string/trending"
                     android:checked="true"/>
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🏺 Pottery" />
+                    android:text="@string/pottery" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🧵 Textiles" />
+                    android:text="@string/textiles" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🪵 Woodwork" />
+                    android:text="@string/woodwork" />
 
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.Material3.Chip.Filter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🌿 Organic" />
+                    android:text="@string/organic" />
             </com.google.android.material.chip.ChipGroup>
         </HorizontalScrollView>
 

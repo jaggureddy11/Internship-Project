@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.hallisanthe.hallisanthe.databinding.FragmentWishlistBinding
 import com.hallisanthe.hallisanthe.ui.ProductViewModel
+import com.hallisanthe.hallisanthe.utils.setVisible
 import kotlinx.coroutines.launch
 
 class WishlistFragment : Fragment() {
@@ -55,8 +56,8 @@ class WishlistFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.wishlist.collect { items ->
                 productAdapter.submitList(items)
-                binding.emptyWishlistLayout.visibility = if (items.isEmpty()) View.VISIBLE else View.GONE
-                binding.rvWishlist.visibility = if (items.isNotEmpty()) View.VISIBLE else View.GONE
+                binding.emptyWishlistLayout.setVisible(items.isEmpty())
+                binding.rvWishlist.setVisible(items.isNotEmpty())
             }
         }
     }

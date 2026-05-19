@@ -11,8 +11,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.android.material.card.MaterialCardView
 
+/**
+ * Modern ListAdapter for the Product grid.
+ * Uses DiffUtil for high-performance updates and smooth animations.
+ *
+ * @param onClick Callback function triggered when an item is clicked.
+ */
 class ProductAdapter(private val onClick: (Product) -> Unit) : ListAdapter<Product, ProductAdapter.ViewHolder>(ProductDiffCallback()) {
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
@@ -31,7 +36,7 @@ class ProductAdapter(private val onClick: (Product) -> Unit) : ListAdapter<Produ
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val p = getItem(position)
         holder.name.text = p.name
-        holder.artisan.text = "By ${p.artisanName}"
+        holder.artisan.text = holder.itemView.context.getString(R.string.artisan_name_label, p.artisanName)
         holder.village.text = p.villageName
         holder.priceTag.text = "₹${p.price}"
 
@@ -53,6 +58,9 @@ class ProductAdapter(private val onClick: (Product) -> Unit) : ListAdapter<Produ
         holder.itemView.setOnClickListener { onClick(p) }
     }
 
+    /**
+     * Efficiently calculates the difference between two lists.
+     */
     class ProductDiffCallback : DiffUtil.ItemCallback<Product>() {
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
             return oldItem.id == newItem.id

@@ -1,5 +1,6 @@
 package com.hallisanthe.hallisanthe.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -13,6 +14,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
+/**
+ * Shared ViewModel responsible for managing product data and wishlist state.
+ * It follows the UDF (Unidirectional Data Flow) pattern by exposing StateFlows.
+ *
+ * @param repository The repository that provides data from cloud and local sources.
+ */
 class ProductViewModel(private val repository: ProductRepository) : ViewModel() {
 
     private val _products = MutableStateFlow<List<Product>>(emptyList())
@@ -29,11 +36,17 @@ class ProductViewModel(private val repository: ProductRepository) : ViewModel() 
         fetchWishlist()
     }
 
+    /**
+     * Triggers the fetching of products from the repository.
+     */
     private fun fetchProducts() {
         viewModelScope.launch {
             _isLoading.value = true
             repository.getProducts()
-                .catch { _isLoading.value = false }
+                .catch { e ->
+                    Log.e("ProductViewModel", "Error fetching products", e)
+                    _isLoading.value = false
+                }
                 .collect { productList ->
                     _products.value = productList
                     _isLoading.value = false
@@ -41,24 +54,40 @@ class ProductViewModel(private val repository: ProductRepository) : ViewModel() 
         }
     }
 
+    /**
+     * Observes the local wishlist database for changes.
+     */
     private fun fetchWishlist() {
         viewModelScope.launch {
             repository.getWishlist()
-                .catch { /* handle error */ }
+                .catch { e -> Log.e("ProductViewModel", "Error fetching wishlist", e) }
                 .collect { _wishlist.value = it }
         }
     }
 
+    /**
+     * Adds or removes a product from the local wishlist.
+     */
     fun toggleWishlist(product: Product) {
         viewModelScope.launch {
-            val isCurrentlyWishlisted = _wishlist.value.any { it.id == product.id }
-            repository.toggleWishlist(product, isCurrentlyWishlisted)
+            try {
+                val isCurrentlyWishlisted = _wishlist.value.any { it.id == product.id }
+                repository.toggleWishlist(product, isCurrentlyWishlisted)
+            } catch (e: Exception) {
+                Log.e("ProductViewModel", "Error toggling wishlist", e)
+            }
         }
     }
 
+    /**
+     * Returns a Flow that emits true if the product is wishlisted.
+     */
     fun isWishlisted(productId: String) = repository.isProductWishlisted(productId)
 
     companion object {
+        /**
+         * Factory to provide the repository to the ViewModel since it needs a non-empty constructor.
+         */
         val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
