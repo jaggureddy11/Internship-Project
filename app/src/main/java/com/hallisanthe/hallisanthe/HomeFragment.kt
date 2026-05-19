@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     
-    private val viewModel: ProductViewModel by viewModels()
+    private val viewModel: ProductViewModel by viewModels { ProductViewModel.Factory }
     private lateinit var productAdapter: ProductAdapter
     
     private var currentCategory: String = "All"
